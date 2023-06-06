@@ -20,6 +20,10 @@ const App = () => {
   const deleteUser = id => {
     setUsers(users.filter(user => user.id !== id));
   };
+  const editUser = (id, updatedData)=>{
+setUsers(users.map((user) => (user.id === id ? updatedData : user)));
+
+  }
 
   return (
     <div className="container">
@@ -31,7 +35,7 @@ const App = () => {
         </div>
         <div className="flex-large">
           <h2>View users</h2>
-          <UserTable users={users} deleteUser={deleteUser} />
+          <UserTable users={users} deleteUser={deleteUser} editUser={editUser} />
         </div>
       </div>
     </div>
